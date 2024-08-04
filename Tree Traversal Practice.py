@@ -1,51 +1,74 @@
+"""
+This module implements and tests various tree traversal algorithms on a binary tree.
+"""
+
 class Node:
+    """
+    A class to represent a node in a binary tree.
+    """
     def __init__(self, key):
+        """
+        Initialize the node with a key, and left and right children as None.
+        """
         self.left = None
         self.right = None
         self.val = key
 
-def printInorder(root):
+
+def print_inorder(root):
+    """
+    Perform in-order traversal of the binary tree.
+    """
     if root:
         # First recur on left child
-        printInorder(root.left)
+        print_inorder(root.left)
         # Then print the data of node
         print(root.val, end=' ')
         # Now recur on right child
-        printInorder(root.right)
+        print_inorder(root.right)
 
-def printPreorder(root):
+
+def print_preorder(root):
+    """
+    Perform pre-order traversal of the binary tree.
+    """
     if root:
         # First print the data of node
         print(root.val, end=' ')
         # Then recur on left child
-        printPreorder(root.left)
+        print_preorder(root.left)
         # Now recur on right child
-        printPreorder(root.right)
+        print_preorder(root.right)
 
-def printPostorder(root):
+
+def print_postorder(root):
+    """
+    Perform post-order traversal of the binary tree.
+    """
     if root:
         # First recur on left child
-        printPostorder(root.left)
+        print_postorder(root.left)
         # Then recur on right child
-        printPostorder(root.right)
+        print_postorder(root.right)
         # Now print the data of node
         print(root.val, end=' ')
 
+
 # Construct the binary tree
-root = Node(50)
-root.left = Node(30)
-root.right = Node(70)
-root.left.left = Node(40)
-root.left.right = Node(20)
-root.right.left = Node(60)
-root.right.right = Node(80)
+root_node = Node(50)
+root_node.left = Node(30)
+root_node.right = Node(70)
+root_node.left.left = Node(40)
+root_node.left.right = Node(20)
+root_node.right.left = Node(60)
+root_node.right.right = Node(80)
 
 # Test traversals
 print("In-order traversal:")
-printInorder(root)
+print_inorder(root_node)
 
 print("\nPre-order traversal:")
-printPreorder(root)
+print_preorder(root_node)
 
 print("\nPost-order traversal:")
-printPostorder(root)
+print_postorder(root_node)
